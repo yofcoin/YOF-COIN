@@ -1,498 +1,1242 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>YOF COIN | Futuro Descentralizado</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <style>
+<title>YOF COIN | AI • WEB3 • FUTURE</title>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      scroll-behavior:smooth;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    body{
-      font-family:'Inter',sans-serif;
-      background:#020202;
-      color:white;
-      overflow-x:hidden;
-    }
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
-    body::before{
-      content:'';
-      position:fixed;
-      width:100%;
-      height:100%;
-      background:
-      radial-gradient(circle at top left,#00ffcc22,transparent 30%),
-      radial-gradient(circle at bottom right,#00ffaa22,transparent 30%);
-      z-index:-1;
-    }
+<style>
 
-    nav{
-      width:100%;
-      position:fixed;
-      top:0;
-      left:0;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:20px 8%;
-      background:rgba(0,0,0,0.6);
-      backdrop-filter:blur(10px);
-      z-index:1000;
-      border-bottom:1px solid rgba(255,255,255,0.08);
-    }
+/* =========================
+RESET
+========================= */
 
-    nav h1{
-      font-family:'Orbitron',sans-serif;
-      color:#9effd8;
-      font-size:2rem;
-      letter-spacing:2px;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    nav ul{
-      display:flex;
-      list-style:none;
-      gap:35px;
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    nav ul li a{
-      text-decoration:none;
-      color:white;
-      transition:0.3s;
-      font-weight:500;
-    }
+body{
+  background:#040404;
+  color:white;
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+  position:relative;
+}
 
-    nav ul li a:hover{
-      color:#9effd8;
-    }
+/* =========================
+BACKGROUND
+========================= */
 
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:120px 8%;
-      gap:70px;
-      flex-wrap:wrap;
-    }
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
 
-    .hero-left{
-      flex:1;
-      min-width:300px;
-    }
+  background:
+  radial-gradient(circle at top left,
+  rgba(0,255,200,0.08),
+  transparent 25%),
 
-    .hero-left h2{
-      font-size:4.5rem;
-      line-height:1.1;
-      font-family:'Orbitron',sans-serif;
-      margin-bottom:20px;
-      background:linear-gradient(to right,#ffffff,#8fffd5);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
+  radial-gradient(circle at bottom right,
+  rgba(0,170,255,0.08),
+  transparent 25%);
 
-    .hero-left p{
-      color:#cccccc;
-      font-size:1.15rem;
-      line-height:1.8;
-      margin-bottom:35px;
-      max-width:700px;
-    }
+  z-index:-3;
+}
 
-    .buttons{
-      display:flex;
-      gap:20px;
-      flex-wrap:wrap;
-    }
+body::after{
+  content:'';
+  position:fixed;
+  inset:0;
 
-    .btn{
-      padding:16px 35px;
-      border:none;
-      border-radius:50px;
-      cursor:pointer;
-      font-weight:700;
-      transition:0.4s;
-      text-decoration:none;
-      display:inline-block;
-    }
+  background-image:
+  linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
 
-    .primary{
-      background:linear-gradient(135deg,#00ffbf,#00d9ff);
-      color:black;
-      box-shadow:0 0 25px #00ffbf66;
-    }
+  background-size:60px 60px;
 
-    .primary:hover{
-      transform:translateY(-5px) scale(1.05);
-    }
+  z-index:-2;
+}
 
-    .secondary{
-      border:1px solid #9effd8;
-      color:#9effd8;
-      background:transparent;
-    }
+/* =========================
+CURSOR LIGHT
+========================= */
 
-    .secondary:hover{
-      background:#9effd8;
-      color:black;
-    }
+.cursor-light{
+  position:fixed;
+  width:500px;
+  height:500px;
 
-    .hero-right{
-      flex:1;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      min-width:300px;
-    }
+  background:
+  radial-gradient(circle,
+  rgba(0,255,200,0.18) 0%,
+  transparent 70%);
 
-    .logo-box{
-      width:420px;
-      height:420px;
-      border-radius:40px;
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(255,255,255,0.08);
-      backdrop-filter:blur(20px);
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      box-shadow:0 0 60px rgba(0,255,170,0.25);
-      animation:float 5s ease-in-out infinite;
-    }
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+  z-index:-1;
+}
 
-    .logo-box img{
-      width:85%;
-      filter:drop-shadow(0 0 20px #9effd8);
-    }
+/* =========================
+NAVBAR
+========================= */
 
-    @keyframes float{
-      0%{transform:translateY(0px);}
-      50%{transform:translateY(-20px);}
-      100%{transform:translateY(0px);}
-    }
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
 
-    section{
-      padding:120px 8%;
-    }
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 
-    .section-title{
-      font-size:3rem;
-      margin-bottom:25px;
-      font-family:'Orbitron',sans-serif;
-      color:#9effd8;
-    }
+  padding:22px 8%;
 
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:30px;
-      margin-top:50px;
-    }
+  background:rgba(0,0,0,0.45);
+  backdrop-filter:blur(18px);
 
-    .card{
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:25px;
-      padding:35px;
-      transition:0.4s;
-      backdrop-filter:blur(15px);
-    }
+  border-bottom:
+  1px solid rgba(255,255,255,0.06);
 
-    .card:hover{
-      transform:translateY(-10px);
-      border-color:#9effd8;
-      box-shadow:0 0 30px rgba(0,255,170,0.2);
-    }
+  z-index:999;
+}
 
-    .card h3{
-      font-size:1.6rem;
-      margin-bottom:15px;
-      color:#9effd8;
-    }
+.logo{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
 
-    .card p{
-      color:#d5d5d5;
-      line-height:1.7;
-    }
+.logo img{
+  width:60px;
+  height:60px;
+  object-fit:contain;
 
-    .tokenomics{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:30px;
-      margin-top:50px;
-    }
+  filter:
+  drop-shadow(0 0 15px #9effd8);
 
-    .token-box{
-      background:linear-gradient(145deg,#081310,#0f201a);
-      border:1px solid rgba(0,255,170,0.15);
-      padding:35px;
-      border-radius:25px;
-      text-align:center;
-    }
+  animation:floatLogo 5s ease-in-out infinite;
+}
 
-    .token-box h4{
-      color:#9effd8;
-      font-size:1.2rem;
-      margin-bottom:15px;
-    }
+@keyframes floatLogo{
 
-    .token-box span{
-      font-size:2rem;
-      font-weight:800;
-      font-family:'Orbitron',sans-serif;
-    }
+  0%{
+    transform:translateY(0px);
+  }
 
-    .roadmap{
-      position:relative;
-      margin-top:60px;
-      border-left:3px solid #9effd8;
-      padding-left:40px;
-    }
+  50%{
+    transform:translateY(-8px);
+  }
 
-    .road-item{
-      margin-bottom:60px;
-      position:relative;
-    }
+  100%{
+    transform:translateY(0px);
+  }
 
-    .road-item::before{
-      content:'';
-      width:18px;
-      height:18px;
-      border-radius:50%;
-      background:#9effd8;
-      position:absolute;
-      left:-50px;
-      top:5px;
-      box-shadow:0 0 15px #9effd8;
-    }
+}
 
-    .road-item h3{
-      margin-bottom:10px;
-      color:#9effd8;
-    }
+.logo h1{
+  font-family:'Orbitron',sans-serif;
+  font-size:2rem;
+  color:#9effd8;
+  letter-spacing:3px;
+}
 
-    footer{
-      text-align:center;
-      padding:50px 20px;
-      border-top:1px solid rgba(255,255,255,0.08);
-      color:#aaa;
-      background:#050505;
-    }
+nav ul{
+  display:flex;
+  list-style:none;
+  gap:35px;
+}
 
-    @media(max-width:900px){
+nav ul li a{
+  text-decoration:none;
+  color:white;
+  transition:0.3s;
+  font-weight:500;
+  position:relative;
+}
 
-      .hero-left h2{
-        font-size:3rem;
-      }
+nav ul li a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0%;
+  height:2px;
+  background:#9effd8;
+  transition:0.4s;
+}
 
-      .logo-box{
-        width:300px;
-        height:300px;
-      }
+nav ul li a:hover::after{
+  width:100%;
+}
 
-      nav ul{
-        gap:15px;
-      }
-    }
+nav ul li a:hover{
+  color:#9effd8;
+}
 
-  </style>
+/* =========================
+HERO
+========================= */
+
+.hero{
+  min-height:100vh;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  padding:150px 8% 100px;
+
+  gap:80px;
+  flex-wrap:wrap;
+}
+
+.hero-left{
+  flex:1;
+  min-width:320px;
+}
+
+.hero-badge{
+  display:inline-block;
+
+  padding:12px 24px;
+
+  border-radius:50px;
+
+  background:
+  rgba(0,255,200,0.08);
+
+  border:
+  1px solid rgba(0,255,200,0.2);
+
+  color:#9effd8;
+
+  margin-bottom:30px;
+
+  font-size:0.95rem;
+  letter-spacing:1px;
+}
+
+.hero-left h2{
+  font-size:5rem;
+  line-height:1.05;
+
+  font-family:'Orbitron',sans-serif;
+
+  margin-bottom:30px;
+
+  background:
+  linear-gradient(
+  to right,
+  #ffffff,
+  #9effd8,
+  #ffffff);
+
+  background-size:200% auto;
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  animation:shine 5s linear infinite;
+}
+
+@keyframes shine{
+  to{
+    background-position:200% center;
+  }
+}
+
+.hero-left p{
+  font-size:1.1rem;
+  line-height:1.9;
+  color:#d2d2d2;
+  margin-bottom:40px;
+  max-width:750px;
+}
+
+.buttons{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:16px 38px;
+
+  border-radius:60px;
+
+  text-decoration:none;
+
+  font-weight:700;
+
+  transition:0.4s;
+}
+
+.primary{
+  background:
+  linear-gradient(
+  135deg,
+  #00ffd5,
+  #00bfff);
+
+  color:black;
+
+  box-shadow:
+  0 0 25px rgba(0,255,200,0.25);
+}
+
+.primary:hover{
+  transform:
+  translateY(-6px)
+  scale(1.03);
+
+  box-shadow:
+  0 0 45px rgba(0,255,200,0.45);
+}
+
+.secondary{
+  border:
+  1px solid rgba(255,255,255,0.12);
+
+  color:white;
+
+  background:
+  rgba(255,255,255,0.03);
+}
+
+.secondary:hover{
+  background:#9effd8;
+  color:black;
+  transform:translateY(-6px);
+}
+
+/* =========================
+HERO RIGHT
+========================= */
+
+.hero-right{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-width:320px;
+}
+
+.hero-logo-box{
+  width:450px;
+  height:450px;
+
+  border-radius:40px;
+
+  position:relative;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  overflow:hidden;
+
+  background:
+  rgba(255,255,255,0.03);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(20px);
+
+  box-shadow:
+  0 0 80px rgba(0,255,200,0.15);
+}
+
+.hero-logo-box::before{
+  content:'';
+
+  position:absolute;
+
+  width:180%;
+  height:180%;
+
+  background:
+  conic-gradient(
+  transparent,
+  rgba(0,255,200,0.25),
+  transparent 25%);
+
+  animation:spin 8s linear infinite;
+}
+
+.hero-logo-box::after{
+  content:'';
+
+  position:absolute;
+  inset:2px;
+
+  border-radius:38px;
+
+  background:#07110f;
+}
+
+.hero-logo-box img{
+  width:75%;
+
+  z-index:3;
+  position:relative;
+
+  filter:
+  drop-shadow(0 0 25px #9effd8);
+
+  animation:pulse 4s ease-in-out infinite;
+}
+
+@keyframes spin{
+  from{
+    transform:rotate(0deg);
+  }
+
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes pulse{
+
+  0%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.05);
+  }
+
+  100%{
+    transform:scale(1);
+  }
+
+}
+
+/* =========================
+SECTIONS
+========================= */
+
+section{
+  padding:120px 8%;
+}
+
+.section-title{
+  text-align:center;
+
+  font-size:3.5rem;
+
+  margin-bottom:25px;
+
+  font-family:'Orbitron',sans-serif;
+
+  color:#9effd8;
+}
+
+.section-text{
+  max-width:900px;
+
+  margin:auto;
+
+  text-align:center;
+
+  line-height:1.9;
+
+  color:#cfcfcf;
+
+  margin-bottom:70px;
+}
+
+/* =========================
+CARDS
+========================= */
+
+.grid{
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(300px,1fr));
+
+  gap:35px;
+}
+
+.card{
+  position:relative;
+
+  padding:40px;
+
+  border-radius:30px;
+
+  overflow:hidden;
+
+  background:
+  rgba(255,255,255,0.04);
+
+  border:
+  1px solid rgba(255,255,255,0.06);
+
+  backdrop-filter:blur(20px);
+
+  transition:0.5s;
+}
+
+.card::before{
+  content:'';
+
+  position:absolute;
+
+  width:250%;
+  height:250%;
+
+  top:-80%;
+  left:-80%;
+
+  background:
+  conic-gradient(
+  transparent,
+  rgba(0,255,200,0.15),
+  transparent 30%);
+
+  animation:spin 8s linear infinite;
+}
+
+.card::after{
+  content:'';
+
+  position:absolute;
+
+  inset:1px;
+
+  border-radius:29px;
+
+  background:#09100f;
+
+  z-index:0;
+}
+
+.card *{
+  position:relative;
+  z-index:2;
+}
+
+.card:hover{
+  transform:
+  translateY(-12px)
+  scale(1.03);
+
+  border-color:#9effd8;
+
+  box-shadow:
+  0 0 35px rgba(0,255,200,0.2);
+}
+
+.card-icon{
+  width:75px;
+  height:75px;
+
+  border-radius:22px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:2rem;
+
+  background:
+  rgba(0,255,200,0.08);
+
+  border:
+  1px solid rgba(0,255,200,0.15);
+
+  margin-bottom:25px;
+}
+
+.card h3{
+  font-size:1.5rem;
+
+  margin-bottom:18px;
+
+  color:#9effd8;
+
+  font-family:'Orbitron',sans-serif;
+}
+
+.card p{
+  color:#d0d0d0;
+  line-height:1.8;
+}
+
+/* =========================
+TOKENOMICS
+========================= */
+
+.tokenomics-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  margin-top:60px;
+}
+
+.token-box{
+  background:
+  linear-gradient(145deg,#081310,#10221b);
+
+  border:
+  1px solid rgba(0,255,170,0.15);
+
+  padding:40px;
+
+  border-radius:30px;
+
+  text-align:center;
+
+  transition:0.4s;
+}
+
+.token-box:hover{
+  transform:translateY(-10px);
+
+  box-shadow:
+  0 0 30px rgba(0,255,170,0.2);
+}
+
+.token-box h3{
+  color:#9effd8;
+  margin-bottom:15px;
+  font-family:'Orbitron',sans-serif;
+}
+
+.token-box span{
+  font-size:2rem;
+  font-weight:800;
+  font-family:'Orbitron',sans-serif;
+}
+
+/* =========================
+SOCIALS
+========================= */
+
+.socials-container{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(240px,1fr));
+
+  gap:30px;
+
+  margin-top:70px;
+
+}
+
+.social-box{
+
+  position:relative;
+
+  overflow:hidden;
+
+  padding:40px 30px;
+
+  border-radius:30px;
+
+  text-decoration:none;
+
+  color:white;
+
+  background:
+  rgba(255,255,255,0.04);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(20px);
+
+  transition:0.5s;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+}
+
+.social-box::before{
+
+  content:'';
+
+  position:absolute;
+
+  width:220%;
+  height:220%;
+
+  background:
+  conic-gradient(
+  transparent,
+  rgba(0,255,200,0.15),
+  transparent 30%);
+
+  animation:spin 8s linear infinite;
+
+}
+
+.social-box::after{
+
+  content:'';
+
+  position:absolute;
+
+  inset:1px;
+
+  border-radius:29px;
+
+  background:#08110f;
+
+  z-index:0;
+
+}
+
+.social-box *{
+  position:relative;
+  z-index:2;
+}
+
+.social-box:hover{
+
+  transform:
+  translateY(-12px)
+  scale(1.03);
+
+  border-color:#9effd8;
+
+}
+
+.social-icon{
+
+  width:90px;
+  height:90px;
+
+  border-radius:25px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:2.8rem;
+
+  margin-bottom:25px;
+
+  background:
+  rgba(0,255,200,0.08);
+
+  border:
+  1px solid rgba(0,255,200,0.15);
+
+  color:#9effd8;
+
+}
+
+.social-box h3{
+
+  font-size:1.4rem;
+
+  margin-bottom:10px;
+
+  font-family:'Orbitron',sans-serif;
+
+  color:#9effd8;
+
+}
+
+.social-box span{
+
+  color:#cfcfcf;
+
+  font-size:0.95rem;
+
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+  padding:60px 8%;
+
+  text-align:center;
+
+  border-top:
+  1px solid rgba(255,255,255,0.08);
+
+  background:#050505;
+
+  color:#8f8f8f;
+
+  line-height:2;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:1000px){
+
+  .hero-left h2{
+    font-size:3.5rem;
+  }
+
+  .hero-logo-box{
+    width:330px;
+    height:330px;
+  }
+
+}
+
+@media(max-width:700px){
+
+  nav{
+    flex-direction:column;
+    gap:20px;
+  }
+
+  nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px;
+  }
+
+  .hero-left h2{
+    font-size:2.7rem;
+  }
+
+  .section-title{
+    font-size:2.5rem;
+  }
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-  <nav>
+<div class="cursor-light" id="cursorLight"></div>
+
+<!-- =========================
+NAVBAR
+========================= -->
+
+<nav>
+
+  <div class="logo">
+
+    <img src="https://cdn.phototourl.com/free/2026-05-23-61166938-973a-4838-a36b-2e3123a844fa.png" alt="YOF COIN">
+
     <h1>YOF COIN</h1>
 
-    <ul>
-      <li><a href="#about">Proyecto</a></li>
-      <li><a href="#tokenomics">Tokenomics</a></li>
-      <li><a href="#roadmap">Roadmap</a></li>
-      <li><a href="#community">Comunidad</a></li>
-    </ul>
-  </nav>
+  </div>
 
-  <section class="hero">
+  <ul>
+    <li><a href="#about">Proyecto</a></li>
+    <li><a href="#tokenomics">Tokenomics</a></li>
+    <li><a href="#whitepaper">Whitepaper</a></li>
+    <li><a href="#socials">Redes</a></li>
+  </ul>
 
-    <div class="hero-left">
+</nav>
 
-      <h2>EL FUTURO<br>DE LA IA Y EL MARKETING</h2>
+<!-- =========================
+HERO
+========================= -->
+
+<section class="hero">
+
+  <div class="hero-left">
+
+    <div class="hero-badge">
+      AI • WEB3 • MARKETING • AUTOMATION
+    </div>
+
+    <h2>
+      EL FUTURO<br>
+      DESCENTRALIZADO<br>
+      COMIENZA AQUÍ
+    </h2>
+
+    <p>
+      YOF COIN es un ecosistema digital impulsado por Inteligencia Artificial,
+      automatización y estrategias avanzadas de crecimiento digital.
+      Nuestro objetivo es construir una marca tecnológica global centrada
+      en innovación, comunidad y expansión Web3.
+      <br><br>
+
+      El suministro total de YOF COIN es de 10 millones de tokens.
+      El lanzamiento inicial ya fue realizado con 3.3 millones de tokens
+      actualmente en circulación.
+      <br><br>
+
+      Cada mes se desbloquean 200.000 nuevos tokens destinados
+      al crecimiento del ecosistema, expansión de la comunidad,
+      marketing y futuras utilidades del proyecto.
+    </p>
+
+    <div class="buttons">
+
+      <a href="#" class="btn primary">
+        COMPRAR TOKEN
+      </a>
+
+      <a href="#whitepaper" class="btn secondary">
+        LEER WHITEPAPER
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="hero-right">
+
+    <div class="hero-logo-box">
+
+      <img src="https://cdn.phototourl.com/free/2026-05-23-61166938-973a-4838-a36b-2e3123a844fa.png" alt="YOF COIN">
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================
+ABOUT
+========================= -->
+
+<section id="about">
+
+  <h2 class="section-title">
+    ¿QUÉ ES YOF COIN?
+  </h2>
+
+  <p class="section-text">
+    Un ecosistema diseñado para combinar Inteligencia Artificial,
+    automatización, marketing digital y herramientas Web3
+    en una única plataforma enfocada en crecimiento global.
+  </p>
+
+  <div class="grid">
+
+    <div class="card">
+
+      <div class="card-icon">🧠</div>
+
+      <h3>INTELIGENCIA ARTIFICIAL</h3>
 
       <p>
-        YOF COIN es un token descentralizado creado para impulsar una nueva generación
-        de empresas enfocadas en Inteligencia Artificial, Marketing Digital y creación
-        de contenido viral mediante clipping de videos.
-        <br><br>
-        Nuestro objetivo es construir un ecosistema fuerte, transparente y con una
-        comunidad activa que participe del crecimiento del proyecto.
+        Desarrollo de sistemas de IA para automatizar procesos,
+        crear contenido y potenciar negocios digitales.
       </p>
 
-      <div class="buttons">
-        <a href="#" class="btn primary">COMPRAR TOKEN</a>
-        <a href="#" class="btn secondary">WHITEPAPER</a>
-      </div>
+    </div>
+
+    <div class="card">
+
+      <div class="card-icon">📈</div>
+
+      <h3>MARKETING DIGITAL</h3>
+
+      <p>
+        Estrategias virales, branding, tráfico y expansión
+        internacional para empresas y creadores.
+      </p>
 
     </div>
 
-    <div class="hero-right">
+    <div class="card">
 
-      <div class="logo-box">
-        <!-- CAMBIA logo.png POR EL NOMBRE DE TU IMAGEN -->
-        <img src="logo.png" alt="YOF COIN Logo">
-      </div>
+      <div class="card-icon">🎬</div>
 
-    </div>
+      <h3>CLIPPING VIRAL</h3>
 
-  </section>
-
-  <section id="about">
-
-    <h2 class="section-title">¿QUÉ ES YOF COIN?</h2>
-
-    <div class="cards">
-
-      <div class="card">
-        <h3>IA & AUTOMATIZACIÓN</h3>
-        <p>
-          Desarrollo de herramientas de Inteligencia Artificial para empresas,
-          automatización de procesos y crecimiento digital.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>MARKETING DIGITAL</h3>
-        <p>
-          Estrategias avanzadas de branding, tráfico, posicionamiento y campañas
-          virales para negocios y creadores.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>CLIPPING DE VIDEOS</h3>
-        <p>
-          Creación de clips virales optimizados para TikTok, Instagram Reels,
-          YouTube Shorts y plataformas sociales.
-        </p>
-      </div>
+      <p>
+        Producción masiva de contenido optimizado para
+        TikTok, Reels y YouTube Shorts.
+      </p>
 
     </div>
 
-  </section>
+  </div>
 
-  <section id="tokenomics">
+</section>
 
-    <h2 class="section-title">TOKENOMICS</h2>
+<!-- =========================
+TOKENOMICS
+========================= -->
 
-    <div class="tokenomics">
+<section id="tokenomics">
 
-      <div class="token-box">
-        <h4>SUPPLY TOTAL</h4>
-        <span>10M</span>
-      </div>
+  <h2 class="section-title">
+    TOKENOMICS
+  </h2>
 
-      <div class="token-box">
-        <h4>LANZAMIENTO INICIAL</h4>
-        <span>3.3M</span>
-      </div>
+  <p class="section-text">
+    La economía de YOF COIN está diseñada para mantener
+    crecimiento sostenible, expansión internacional y
+    recompensas activas para la comunidad.
+  </p>
 
-      <div class="token-box">
-        <h4>EMISIÓN MENSUAL</h4>
-        <span>200K</span>
-      </div>
+  <div class="tokenomics-grid">
 
-      <div class="token-box">
-        <h4>SORTEOS MENSUALES</h4>
-        <span>100 TOKENS</span>
-      </div>
+    <div class="token-box">
+      <h3>SUPPLY TOTAL</h3>
+      <span>10M</span>
+    </div>
+
+    <div class="token-box">
+      <h3>EN CIRCULACIÓN</h3>
+      <span>3.3M</span>
+    </div>
+
+    <div class="token-box">
+      <h3>DESBLOQUEO MENSUAL</h3>
+      <span>200K</span>
+    </div>
+
+    <div class="token-box">
+      <h3>SORTEO MENSUAL</h3>
+      <span>100 TOKENS</span>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================
+WHITEPAPER
+========================= -->
+
+<section id="whitepaper">
+
+  <h2 class="section-title">
+    WHITEPAPER
+  </h2>
+
+  <p class="section-text">
+    YOF COIN busca convertirse en una referencia mundial
+    dentro del sector IA + Web3 + Marketing Digital.
+    <br><br>
+
+    El proyecto combina automatización avanzada,
+    herramientas inteligentes y creación de contenido
+    viral para construir un ecosistema tecnológico
+    descentralizado impulsado por comunidad.
+    <br><br>
+
+    Cada mes se regalarán 100 tokens a un miembro
+    aleatorio de la comunidad que cumpla las normas,
+    participe activamente, comente, se suscriba
+    y apoye el crecimiento del ecosistema YOF COIN.
+  </p>
+
+  <div class="grid">
+
+    <div class="card">
+
+      <div class="card-icon">⚡</div>
+
+      <h3>VISIÓN GLOBAL</h3>
+
+      <p>
+        Convertirse en una referencia internacional
+        dentro del sector IA + WEB3 + Automatización.
+      </p>
 
     </div>
 
-  </section>
+    <div class="card">
 
-  <section id="roadmap">
+      <div class="card-icon">🌐</div>
 
-    <h2 class="section-title">ROADMAP</h2>
+      <h3>WEB3</h3>
 
-    <div class="roadmap">
-
-      <div class="road-item">
-        <h3>FASE 1 — LANZAMIENTO</h3>
-        <p>
-          Desarrollo del ecosistema YOF COIN, lanzamiento inicial de 3.3 millones
-          de tokens y construcción de comunidad.
-        </p>
-      </div>
-
-      <div class="road-item">
-        <h3>FASE 2 — CRECIMIENTO</h3>
-        <p>
-          Integración de herramientas de IA, marketing digital y expansión
-          internacional de la marca.
-        </p>
-      </div>
-
-      <div class="road-item">
-        <h3>FASE 3 — EXPANSIÓN WEB3</h3>
-        <p>
-          Implementación de utilidades reales del token, asociaciones estratégicas
-          y desarrollo de plataforma descentralizada.
-        </p>
-      </div>
-
-      <div class="road-item">
-        <h3>FASE 4 — ECOSISTEMA GLOBAL</h3>
-        <p>
-          Creación de una empresa tecnológica basada en IA, automatización y
-          producción masiva de contenido digital.
-        </p>
-      </div>
+      <p>
+        Ecosistema descentralizado con participación
+        activa de la comunidad y expansión global.
+      </p>
 
     </div>
 
-  </section>
+    <div class="card">
 
-  <section id="community">
+      <div class="card-icon">💎</div>
 
-    <h2 class="section-title">COMUNIDAD</h2>
+      <h3>UTILIDAD DEL TOKEN</h3>
 
-    <div class="cards">
-
-      <div class="card">
-        <h3>SORTEOS MENSUALES</h3>
-        <p>
-          Cada mes se realizarán sorteos de 100 tokens para miembros activos
-          de la comunidad YOF COIN.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>DESCENTRALIZACIÓN</h3>
-        <p>
-          Un proyecto pensado para la comunidad, impulsando transparencia
-          y crecimiento sostenible.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>VISIÓN FUTURA</h3>
-        <p>
-          Convertir YOF COIN en una referencia mundial en IA, marketing y
-          tecnología descentralizada.
-        </p>
-      </div>
+      <p>
+        Acceso premium a futuras herramientas,
+        recompensas exclusivas, sorteos y utilidades
+        dentro del ecosistema YOF COIN.
+      </p>
 
     </div>
 
-  </section>
+  </div>
 
-  <footer>
-    © 2025 YOF COIN — Todos los derechos reservados.
-  </footer>
+</section>
+
+<!-- =========================
+SOCIALS
+========================= -->
+
+<section id="socials">
+
+  <h2 class="section-title">
+    REDES OFICIALES
+  </h2>
+
+  <p class="section-text">
+    Sigue el crecimiento de YOF COIN
+    y forma parte de la comunidad oficial.
+  </p>
+
+  <div class="socials-container">
+
+    <a href="#"
+    target="_blank"
+    class="social-box">
+
+      <div class="social-icon">
+        <i class="fab fa-telegram"></i>
+      </div>
+
+      <h3>TELEGRAM</h3>
+
+      <span>
+        Próximamente
+      </span>
+
+    </a>
+
+    <a href="https://www.youtube.com/@yofcoin"
+    target="_blank"
+    class="social-box">
+
+      <div class="social-icon">
+        <i class="fab fa-youtube"></i>
+      </div>
+
+      <h3>YOUTUBE</h3>
+
+      <span>
+        @yofcoin
+      </span>
+
+    </a>
+
+    <a href="#"
+    target="_blank"
+    class="social-box">
+
+      <div class="social-icon">
+        <i class="fab fa-tiktok"></i>
+      </div>
+
+      <h3>TIKTOK</h3>
+
+      <span>
+        Próximamente
+      </span>
+
+    </a>
+
+    <a href="#"
+    target="_blank"
+    class="social-box">
+
+      <div class="social-icon">
+        <i class="fab fa-instagram"></i>
+      </div>
+
+      <h3>INSTAGRAM</h3>
+
+      <span>
+        Próximamente
+      </span>
+
+    </a>
+
+    <a href="#"
+    target="_blank"
+    class="social-box">
+
+      <div class="social-icon">
+        <i class="fab fa-x-twitter"></i>
+      </div>
+
+      <h3>X / TWITTER</h3>
+
+      <span>
+        Próximamente
+      </span>
+
+    </a>
+
+  </div>
+
+</section>
+
+<!-- =========================
+FOOTER
+========================= -->
+
+<footer>
+
+  © 2025 YOF COIN — Todos los derechos reservados.
+
+  <br><br>
+
+  CEO & FUNDADOR —
+  <span style="color:#9effd8;">
+    HOUSSAM EL AOUNI
+  </span>
+
+</footer>
+
+<!-- =========================
+JAVASCRIPT
+========================= -->
+
+<script>
+
+/* =========================
+CURSOR LIGHT
+========================= */
+
+const cursorLight = document.getElementById('cursorLight');
+
+document.addEventListener('mousemove', (e) => {
+
+  cursorLight.style.left = e.clientX + 'px';
+  cursorLight.style.top = e.clientY + 'px';
+
+});
+
+</script>
 
 </body>
 </html>
