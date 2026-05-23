@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YOF COIN | Futuro Descentralizado</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:#020202;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:'';
+      position:fixed;
+      width:100%;
+      height:100%;
+      background:
+      radial-gradient(circle at top left,#00ffcc22,transparent 30%),
+      radial-gradient(circle at bottom right,#00ffaa22,transparent 30%);
+      z-index:-1;
+    }
+
+    nav{
+      width:100%;
+      position:fixed;
+      top:0;
+      left:0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+      background:rgba(0,0,0,0.6);
+      backdrop-filter:blur(10px);
+      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    nav h1{
+      font-family:'Orbitron',sans-serif;
+      color:#9effd8;
+      font-size:2rem;
+      letter-spacing:2px;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:35px;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      transition:0.3s;
+      font-weight:500;
+    }
+
+    nav ul li a:hover{
+      color:#9effd8;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:120px 8%;
+      gap:70px;
+      flex-wrap:wrap;
+    }
+
+    .hero-left{
+      flex:1;
+      min-width:300px;
+    }
+
+    .hero-left h2{
+      font-size:4.5rem;
+      line-height:1.1;
+      font-family:'Orbitron',sans-serif;
+      margin-bottom:20px;
+      background:linear-gradient(to right,#ffffff,#8fffd5);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero-left p{
+      color:#cccccc;
+      font-size:1.15rem;
+      line-height:1.8;
+      margin-bottom:35px;
+      max-width:700px;
+    }
+
+    .buttons{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:16px 35px;
+      border:none;
+      border-radius:50px;
+      cursor:pointer;
+      font-weight:700;
+      transition:0.4s;
+      text-decoration:none;
+      display:inline-block;
+    }
+
+    .primary{
+      background:linear-gradient(135deg,#00ffbf,#00d9ff);
+      color:black;
+      box-shadow:0 0 25px #00ffbf66;
+    }
+
+    .primary:hover{
+      transform:translateY(-5px) scale(1.05);
+    }
+
+    .secondary{
+      border:1px solid #9effd8;
+      color:#9effd8;
+      background:transparent;
+    }
+
+    .secondary:hover{
+      background:#9effd8;
+      color:black;
+    }
+
+    .hero-right{
+      flex:1;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-width:300px;
+    }
+
+    .logo-box{
+      width:420px;
+      height:420px;
+      border-radius:40px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(20px);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      box-shadow:0 0 60px rgba(0,255,170,0.25);
+      animation:float 5s ease-in-out infinite;
+    }
+
+    .logo-box img{
+      width:85%;
+      filter:drop-shadow(0 0 20px #9effd8);
+    }
+
+    @keyframes float{
+      0%{transform:translateY(0px);}
+      50%{transform:translateY(-20px);}
+      100%{transform:translateY(0px);}
+    }
+
+    section{
+      padding:120px 8%;
+    }
+
+    .section-title{
+      font-size:3rem;
+      margin-bottom:25px;
+      font-family:'Orbitron',sans-serif;
+      color:#9effd8;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+      margin-top:50px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:25px;
+      padding:35px;
+      transition:0.4s;
+      backdrop-filter:blur(15px);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      border-color:#9effd8;
+      box-shadow:0 0 30px rgba(0,255,170,0.2);
+    }
+
+    .card h3{
+      font-size:1.6rem;
+      margin-bottom:15px;
+      color:#9effd8;
+    }
+
+    .card p{
+      color:#d5d5d5;
+      line-height:1.7;
+    }
+
+    .tokenomics{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+      margin-top:50px;
+    }
+
+    .token-box{
+      background:linear-gradient(145deg,#081310,#0f201a);
+      border:1px solid rgba(0,255,170,0.15);
+      padding:35px;
+      border-radius:25px;
+      text-align:center;
+    }
+
+    .token-box h4{
+      color:#9effd8;
+      font-size:1.2rem;
+      margin-bottom:15px;
+    }
+
+    .token-box span{
+      font-size:2rem;
+      font-weight:800;
+      font-family:'Orbitron',sans-serif;
+    }
+
+    .roadmap{
+      position:relative;
+      margin-top:60px;
+      border-left:3px solid #9effd8;
+      padding-left:40px;
+    }
+
+    .road-item{
+      margin-bottom:60px;
+      position:relative;
+    }
+
+    .road-item::before{
+      content:'';
+      width:18px;
+      height:18px;
+      border-radius:50%;
+      background:#9effd8;
+      position:absolute;
+      left:-50px;
+      top:5px;
+      box-shadow:0 0 15px #9effd8;
+    }
+
+    .road-item h3{
+      margin-bottom:10px;
+      color:#9effd8;
+    }
+
+    footer{
+      text-align:center;
+      padding:50px 20px;
+      border-top:1px solid rgba(255,255,255,0.08);
+      color:#aaa;
+      background:#050505;
+    }
+
+    @media(max-width:900px){
+
+      .hero-left h2{
+        font-size:3rem;
+      }
+
+      .logo-box{
+        width:300px;
+        height:300px;
+      }
+
+      nav ul{
+        gap:15px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <h1>YOF COIN</h1>
+
+    <ul>
+      <li><a href="#about">Proyecto</a></li>
+      <li><a href="#tokenomics">Tokenomics</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#community">Comunidad</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+
+    <div class="hero-left">
+
+      <h2>EL FUTURO<br>DE LA IA Y EL MARKETING</h2>
+
+      <p>
+        YOF COIN es un token descentralizado creado para impulsar una nueva generación
+        de empresas enfocadas en Inteligencia Artificial, Marketing Digital y creación
+        de contenido viral mediante clipping de videos.
+        <br><br>
+        Nuestro objetivo es construir un ecosistema fuerte, transparente y con una
+        comunidad activa que participe del crecimiento del proyecto.
+      </p>
+
+      <div class="buttons">
+        <a href="#" class="btn primary">COMPRAR TOKEN</a>
+        <a href="#" class="btn secondary">WHITEPAPER</a>
+      </div>
+
+    </div>
+
+    <div class="hero-right">
+
+      <div class="logo-box">
+        <!-- CAMBIA logo.png POR EL NOMBRE DE TU IMAGEN -->
+        <img src="logo.png" alt="YOF COIN Logo">
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="about">
+
+    <h2 class="section-title">¿QUÉ ES YOF COIN?</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>IA & AUTOMATIZACIÓN</h3>
+        <p>
+          Desarrollo de herramientas de Inteligencia Artificial para empresas,
+          automatización de procesos y crecimiento digital.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>MARKETING DIGITAL</h3>
+        <p>
+          Estrategias avanzadas de branding, tráfico, posicionamiento y campañas
+          virales para negocios y creadores.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>CLIPPING DE VIDEOS</h3>
+        <p>
+          Creación de clips virales optimizados para TikTok, Instagram Reels,
+          YouTube Shorts y plataformas sociales.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="tokenomics">
+
+    <h2 class="section-title">TOKENOMICS</h2>
+
+    <div class="tokenomics">
+
+      <div class="token-box">
+        <h4>SUPPLY TOTAL</h4>
+        <span>10M</span>
+      </div>
+
+      <div class="token-box">
+        <h4>LANZAMIENTO INICIAL</h4>
+        <span>3.3M</span>
+      </div>
+
+      <div class="token-box">
+        <h4>EMISIÓN MENSUAL</h4>
+        <span>200K</span>
+      </div>
+
+      <div class="token-box">
+        <h4>SORTEOS MENSUALES</h4>
+        <span>100 TOKENS</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="roadmap">
+
+    <h2 class="section-title">ROADMAP</h2>
+
+    <div class="roadmap">
+
+      <div class="road-item">
+        <h3>FASE 1 — LANZAMIENTO</h3>
+        <p>
+          Desarrollo del ecosistema YOF COIN, lanzamiento inicial de 3.3 millones
+          de tokens y construcción de comunidad.
+        </p>
+      </div>
+
+      <div class="road-item">
+        <h3>FASE 2 — CRECIMIENTO</h3>
+        <p>
+          Integración de herramientas de IA, marketing digital y expansión
+          internacional de la marca.
+        </p>
+      </div>
+
+      <div class="road-item">
+        <h3>FASE 3 — EXPANSIÓN WEB3</h3>
+        <p>
+          Implementación de utilidades reales del token, asociaciones estratégicas
+          y desarrollo de plataforma descentralizada.
+        </p>
+      </div>
+
+      <div class="road-item">
+        <h3>FASE 4 — ECOSISTEMA GLOBAL</h3>
+        <p>
+          Creación de una empresa tecnológica basada en IA, automatización y
+          producción masiva de contenido digital.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="community">
+
+    <h2 class="section-title">COMUNIDAD</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>SORTEOS MENSUALES</h3>
+        <p>
+          Cada mes se realizarán sorteos de 100 tokens para miembros activos
+          de la comunidad YOF COIN.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>DESCENTRALIZACIÓN</h3>
+        <p>
+          Un proyecto pensado para la comunidad, impulsando transparencia
+          y crecimiento sostenible.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>VISIÓN FUTURA</h3>
+        <p>
+          Convertir YOF COIN en una referencia mundial en IA, marketing y
+          tecnología descentralizada.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2025 YOF COIN — Todos los derechos reservados.
+  </footer>
+
+</body>
+</html>
