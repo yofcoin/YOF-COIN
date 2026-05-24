@@ -694,7 +694,8 @@ line-height:1.8;
 color:#d2d2d2;
 }
 
-.pdf-box{
+.pdf-box,
+.wallet-box{
 margin-top:60px;
 padding:50px;
 border-radius:35px;
@@ -704,14 +705,16 @@ linear-gradient(145deg,#081310,#10221b);
 border:1px solid rgba(0,255,200,0.15);
 }
 
-.pdf-box h3{
+.pdf-box h3,
+.wallet-box h3{
 font-size:2rem;
 margin-bottom:20px;
 font-family:'Orbitron',sans-serif;
 color:#9effd8;
 }
 
-.pdf-box p{
+.pdf-box p,
+.wallet-box p{
 max-width:700px;
 margin:auto;
 line-height:1.8;
@@ -719,7 +722,8 @@ color:#d2d2d2;
 margin-bottom:35px;
 }
 
-.pdf-btn{
+.pdf-btn,
+.wallet-btn{
 display:inline-flex;
 align-items:center;
 gap:15px;
@@ -733,7 +737,8 @@ transition:0.4s;
 box-shadow:0 0 30px rgba(0,255,200,0.15);
 }
 
-.pdf-btn:hover{
+.pdf-btn:hover,
+.wallet-btn:hover{
 transform:translateY(-8px) scale(1.03);
 box-shadow:0 0 50px rgba(0,255,200,0.3);
 }
@@ -935,6 +940,7 @@ right:20px;
 <li><a href="#tokenomics">Tokenomics</a></li>
 <li><a href="#viralhub">Viral Hub</a></li>
 <li><a href="#roadmap">Roadmap</a></li>
+<li><a href="#wallets">Wallets</a></li>
 <li><a href="#whitepaper">Whitepaper</a></li>
 <li><a href="#socials">Redes</a></li>
 </ul>
@@ -988,19 +994,20 @@ para expansión, marketing y ecosistema.
 <br><br>
 
 100 tokens regalados mensualmente
-a miembros activos de la comunidad
-que comenten, se suscriban y participen.
+a miembros activos de la comunidad.
 
 </p>
 
 <div class="buttons">
 
-<a href="#" class="btn primary">
-COMPRAR TOKEN
+<a href="#wallets" class="btn primary">
+VER WALLETS
 </a>
 
-<a href="#whitepaper" class="btn secondary">
-WHITEPAPER
+<a href="https://docs.google.com/document/d/15UsrTq5ajnmPtxTaH9NvccV3c5yoEDwxFwsiIioCDWo/edit?tab=t.0#heading=h.jzx936x9cz6m"
+target="_blank"
+class="btn secondary">
+GOOGLE DOCS
 </a>
 
 </div>
@@ -1209,6 +1216,42 @@ Analyzing creator trends...
 
 </section>
 
+<!-- WALLETS -->
+
+<section id="wallets">
+
+<h2 class="section-title">
+WALLETS PÚBLICAS
+</h2>
+
+<p class="section-text">
+Consulta las wallets públicas oficiales del ecosistema YOF COIN.
+</p>
+
+<div class="wallet-box">
+
+<h3>DOCUMENTO OFICIAL</h3>
+
+<p>
+Accede al documento oficial con todas las wallets públicas
+del proyecto YOF COIN.
+</p>
+
+<a
+href="https://docs.google.com/document/d/15UsrTq5ajnmPtxTaH9NvccV3c5yoEDwxFwsiIioCDWo/edit?tab=t.0#heading=h.jzx936x9cz6m"
+target="_blank"
+class="wallet-btn">
+
+<i class="fa-solid fa-wallet"></i>
+
+VER WALLETS PÚBLICAS
+
+</a>
+
+</div>
+
+</section>
+
 <!-- WHITEPAPER -->
 
 <section id="whitepaper">
@@ -1283,44 +1326,60 @@ REDES OFICIALES
 
 <div class="socials-container">
 
-<a href="#" class="social-box">
-<div class="social-icon">
-<i class="fab fa-telegram"></i>
-</div>
-<h3>TELEGRAM</h3>
-<span>Próximamente</span>
-</a>
+<a href="https://x.com/YOFCoin"
+target="_blank"
+class="social-box">
 
-<a href="https://www.youtube.com/@yofcoin" class="social-box">
-<div class="social-icon">
-<i class="fab fa-youtube"></i>
-</div>
-<h3>YOUTUBE</h3>
-<span>@yofcoin</span>
-</a>
-
-<a href="#" class="social-box">
-<div class="social-icon">
-<i class="fab fa-tiktok"></i>
-</div>
-<h3>TIKTOK</h3>
-<span>Próximamente</span>
-</a>
-
-<a href="#" class="social-box">
-<div class="social-icon">
-<i class="fab fa-instagram"></i>
-</div>
-<h3>INSTAGRAM</h3>
-<span>Próximamente</span>
-</a>
-
-<a href="#" class="social-box">
 <div class="social-icon">
 <i class="fab fa-x-twitter"></i>
 </div>
+
 <h3>X / TWITTER</h3>
-<span>Próximamente</span>
+
+<span>@YOFCoin</span>
+
+</a>
+
+<a href="https://instagram.com/YOFCoin"
+target="_blank"
+class="social-box">
+
+<div class="social-icon">
+<i class="fab fa-instagram"></i>
+</div>
+
+<h3>INSTAGRAM</h3>
+
+<span>@YOFCoin</span>
+
+</a>
+
+<a href="https://tiktok.com/@YOFCoin"
+target="_blank"
+class="social-box">
+
+<div class="social-icon">
+<i class="fab fa-tiktok"></i>
+</div>
+
+<h3>TIKTOK</h3>
+
+<span>@YOFCoin</span>
+
+</a>
+
+<a href="https://www.youtube.com/@yofcoin"
+target="_blank"
+class="social-box">
+
+<div class="social-icon">
+<i class="fab fa-youtube"></i>
+</div>
+
+<h3>YOUTUBE</h3>
+
+<span>@yofcoin</span>
+
 </a>
 
 </div>
@@ -1472,8 +1531,6 @@ const toggle = document.getElementById("musicToggle");
 
 let playing = false;
 
-/* BOTÓN MANUAL */
-
 toggle.addEventListener("click",()=>{
 
 if(!playing){
@@ -1500,7 +1557,7 @@ toggle.innerHTML =
 
 });
 
-/* AUTOPLAY SUAVE */
+/* AUTOPLAY */
 
 document.body.addEventListener("click",()=>{
 
@@ -1642,6 +1699,12 @@ clicks++;
 if(clicks >= 5){
 
 alert("YOF hidden mode activated.");
+
+document.body.style.filter = "hue-rotate(40deg)";
+
+setTimeout(()=>{
+document.body.style.filter = "none";
+},3000);
 
 clicks = 0;
 
